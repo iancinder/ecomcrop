@@ -1,8 +1,6 @@
 import Stripe from "stripe";
 import { auth, clerkClient } from "@clerk/nextjs/server";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
 // clerkClient reads user metadata via the Clerk backend API (Node runtime).
 export const runtime = "nodejs";
 
@@ -13,6 +11,9 @@ export const runtime = "nodejs";
 // and 303-redirect the browser to it. Lifetime users land here too — Stripe's
 // portal shows their purchase history without a cancel option.
 export async function GET() {
+  // Instantiate Stripe per-request so the secret isn't required at build time.
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
   const { userId } = await auth();
   if (!userId) return new Response("Unauthorized", { status: 401 });
 

@@ -1,12 +1,14 @@
 import Stripe from "stripe";
 import { auth, clerkClient } from "@clerk/nextjs/server";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
 // clerkClient reads user metadata via the Clerk backend API (Node runtime).
 export const runtime = "nodejs";
 
 export async function GET(req) {
+  // Instantiate Stripe per-request so the secret isn't required at build time
+  // (the module is imported during `next build` page-data collection).
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
   // Clerk v7 / Next 16: auth() is async and reads the request automatically.
   const { userId } = await auth();
   if (!userId) return new Response("Unauthorized", { status: 401 });

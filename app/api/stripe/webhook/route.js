@@ -1,12 +1,13 @@
 import Stripe from "stripe";
 import { clerkClient } from "@clerk/nextjs/server";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
 // Stripe signature verification needs Node's crypto + the raw request body.
 export const runtime = "nodejs";
 
 export async function POST(req) {
+  // Instantiate Stripe per-request so the secret isn't required at build time.
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
   const sig = req.headers.get("stripe-signature");
   const body = await req.text();
 
