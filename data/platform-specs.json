@@ -1,0 +1,61 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-06-01",
+  "platforms": [
+    {
+      "id": "etsy_listing",
+      "label": "Etsy listing",
+      "width": 2000,
+      "height": 2000,
+      "aspect_ratio": "1:1",
+      "format": "jpg",
+      "quality": 0.92,
+      "folder": "Etsy",
+      "filename_suffix": "etsy"
+    },
+    {
+      "id": "instagram_feed",
+      "label": "Instagram feed",
+      "width": 1080,
+      "height": 1080,
+      "aspect_ratio": "1:1",
+      "format": "jpg",
+      "quality": 0.9,
+      "folder": "Instagram/Feed",
+      "filename_suffix": "ig-feed"
+    },
+    {
+      "id": "instagram_story",
+      "label": "Instagram story",
+      "width": 1080,
+      "height": 1920,
+      "aspect_ratio": "9:16",
+      "format": "jpg",
+      "quality": 0.9,
+      "folder": "Instagram/Story",
+      "filename_suffix": "ig-story"
+    },
+    {
+      "id": "tiktok",
+      "label": "TikTok",
+      "width": 1080,
+      "height": 1920,
+      "aspect_ratio": "9:16",
+      "format": "jpg",
+      "quality": 0.88,
+      "folder": "TikTok",
+      "filename_suffix": "tiktok"
+    },
+    {
+      "id": "pinterest",
+      "label": "Pinterest",
+      "width": 1000,
+      "height": 1500,
+      "aspect_ratio": "2:3",
+      "format": "jpg",
+      "quality": 0.9,
+      "folder": "Pinterest",
+      "filename_suffix": "pinterest"
+    }
+  ]
+}
